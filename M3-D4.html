@@ -37,7 +37,14 @@
         <div class="container">
             <h1>Online Marketplace</h1>
             <br><br><br>
-            <button type="button" class="btn btn-success eventButton">Show List</button>
+            <div class="row">
+                <div class="col-2">
+                    <button type="button" class="btn btn-success eventButton">Show List</button> 
+                </div>
+                <div class="col-10">
+                    <input type="text" class="form-control" placeholder="Search..." onchange="filterBooks(this.value)">
+                </div>
+            </div>
             <br><br>
             <div class="row">
                 <div class="itemList col-8">
