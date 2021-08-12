@@ -4,3 +4,15 @@ body{
 h1 {
   color: rgb(90, 90, 247);
 }
+.listOfItems{
+  font-size: 16px;
+  padding: 2px 2px;
+  margin-left: 5px;
+}
+.alignButton {
+  float: right;
+}
+.newClass{
+  color: rebeccapurple;
+  font-weight: bold;
+}

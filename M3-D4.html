@@ -22,6 +22,7 @@
             0) Get all the products from the API using a fetch
             1) Display the list of items available on the page using template literals `` and .forEach
             2) Add a "add to cart button"
+
             3) When the button is pressed, change the style of the item and add it to another list
             4) Add "skip" button next to each item
             5) When pressed, the button should remove from the page the item not interesting from the user
@@ -36,11 +37,14 @@
         <div class="container">
             <h1>Online Marketplace</h1>
             <br><br><br>
-            <button type="button" class="btn btn-primary eventButton">Show List</button>
-            <div class="itemList">
-                
+            <button type="button" class="btn btn-success eventButton">Show List</button>
+            <br><br>
+            <div class="row">
+                <div class="itemList col-8">
+                </div>
+                <div class="cartList col-4">
+                </div>
             </div>
-
 
 
 
@@ -89,13 +93,25 @@
             function displayEachItems (b) {
                     list.innerHTML += `
                     <ul class="list-group">
-                        <li class="list-group-item">${b.title}</li>
+                        <li class="list-group-item listOfItems">${b.title}
+                            <button type="button" class="btn btn-outline-warning alignButton" onclick="cartButton(event)">Add to cart</button>
+                            </li>
                     </ul>
                     ` 
             }
          })
          }
         
+         function cartButton(event){
+            let clicked = event.target.closest("li")
+            clicked.classList.add("newClass")
+
+            let clean = clicked.innerHTML.replace('<button type="button" class="btn btn-outline-warning alignButton" onclick="cartButton(event)">Add to cart</button>', '')
+
+            let newList = document.querySelector(".cartList")
+            newList.innerHTML += `<li class="listOfItems">${clean}</li>`
+            console.log(clean)
+         }
 
 
 
