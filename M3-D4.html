@@ -95,6 +95,7 @@
                     <ul class="list-group">
                         <li class="list-group-item listOfItems">${b.title}
                             <button type="button" class="btn btn-outline-warning alignButton" onclick="cartButton(event)">Add to cart</button>
+                            <button type="button" class="btn btn-outline-danger alignButton" onclick="skipFunction(event)">Skip</button>
                             </li>
                     </ul>
                     ` 
@@ -107,12 +108,18 @@
             clicked.classList.add("newClass")
 
             let clean = clicked.innerHTML.replace('<button type="button" class="btn btn-outline-warning alignButton" onclick="cartButton(event)">Add to cart</button>', '')
+            let newClean = clean.replace('<button type="button" class="btn btn-outline-danger alignButton" onclick="skipFunction(event)">Skip</button>','')
 
             let newList = document.querySelector(".cartList")
-            newList.innerHTML += `<li class="listOfItems">${clean}</li>`
-            console.log(clean)
+            newList.innerHTML += `<li class="listOfItems">${newClean}</li>`
+            console.log(newClean)
          }
 
+         function skipFunction(event){
+            let skip = event.target.closest("li")
+            skip.remove()
+
+         }
 
 
 
